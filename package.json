@@ -1,0 +1,28 @@
+{
+  "name": "symfony-quasar-vue",
+  "version": "1.0.0",
+  "description": "This is for Vinty project",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/encore dev",
+    "watch": "./node_modules/.bin/encore dev --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuiamenhmartin/symfony-quasar-vue.git"
+  },
+  "author": "kuiament",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuiamenhmartin/symfony-quasar-vue/issues"
+  },
+  "homepage": "https://github.com/kuiamenhmartin/symfony-quasar-vue#readme",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "webpack-notifier": "^1.6.0"
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% block stylesheets %}
+
+          <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+          <link rel="icon" href="favicon.png" type="image/x-icon">          
+
+          {% stylesheets '@quasar_css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+          {% endstylesheets %}
+
+
+            <style type="text/css">
+                .logo-container {
+                      width: 255px;
+                      height: 242px;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translateX(-50%) translateY(-50%);
+                    }
+                .logo {
+                  position: absolute;
+                }
+            </style>
+
+        {% endblock %}
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    </head>
+    
+    <body>
+    
+      {% block body %}{% endblock %}
+
+      {% block javascripts %}
+
+        {% javascripts '@quasar_and_vue_js' %}                         
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {# Change Vue JS delimeter due to conflict with symfony because they both use {{ }} delimeter #}
+        {# Use this for VueJs instead : {[{ variable }]} #} 
+        <script> Vue.options.delimiters = ['{[{', '}]}'];</script> 
+
+      {% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} QuasarApp-UMD {% endblock %}
+
+{% block body %}
+  <div id="q-app">
+      <q-layout view="lHh Lpr fff">
+        <q-layout-header>
+          <q-toolbar>
+            <q-btn flat round dense @click="drawerState = !drawerState" icon="menu"></q-btn>
+
+            <q-toolbar-title>
+              Quasar App - umd
+              <div slot="subtitle">Running on Quasar v {[{ version }]}</div>
+            </q-toolbar-title>
+          </q-toolbar>
+      </q-layout-header>
+
+      <q-layout-drawer
+        v-model="drawerState"
+        :content-class="$q.theme === 'mat' ? 'bg-grey-3' : null">
+       
+      </q-layout-drawer>
+
+      <q-page-container>
+        <my-page>
+        </my-page>
+      </q-page-container>
+    </q-layout>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+
+  {{- parent() -}}
+
+  {% javascripts '@AppBundle/Resources/app/backoffice/main.js' %}                         
+      <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+
+  <script type="text/x-template" id="my-page">
+    <q-page padding>
+
+      <!-- page content; replace this entirely -->
+     
+      <br/><br/>
+      
+      
+      <q-search
+        v-model="model"
+        :debounce="600"
+        placeholder="Search cars"
+        icon="local_hotel"
+        float-label="What is your hotel?"
+      />
+
+      <q-uploader
+        :url="url"
+        :after="[
+          {
+            icon: 'warning',
+            handler () {
+              // do something...
+            }
+          }
+        ]"
+      />
+
+    </q-page>
+  </script>
+
+{% endblock %}
