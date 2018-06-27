@@ -1,0 +1,134 @@
+<q-editor
+  v-model="model"
+  :toolbar="[
+    ['bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
+    ['token', 'hr', 'link', 'custom_btn'],
+    ['print', 'fullscreen'],
+    [
+      {
+        label: $q.i18n.editor.formatting,
+        icon: $q.icon.editor.formatting,
+        list: 'no-icons',
+        options: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'code']
+      },
+      {
+        label: $q.i18n.editor.fontSize,
+        icon: $q.icon.editor.fontSize,
+        fixedLabel: true,
+        fixedIcon: true,
+        list: 'no-icons',
+        options: ['size-1', 'size-2', 'size-3', 'size-4', 'size-5', 'size-6', 'size-7']
+      },
+      {
+        label: $q.i18n.editor.defaultFont,
+        icon: $q.icon.editor.font,
+        fixedIcon: true,
+        list: 'no-icons',
+        options: ['default_font', 'arial', 'arial_black', 'comic_sans', 'courier_new', 'impact', 'lucida_grande', 'times_new_roman', 'verdana']
+      },
+      'removeFormat'
+    ],
+    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
+    [
+      {
+        label: $q.i18n.editor.align,
+        icon: $q.icon.editor.align,
+        fixedLabel: true,
+        list: 'only-icons',
+        options: ['left', 'center', 'right', 'justify']
+      },
+      {
+        label: $q.i18n.editor.align,
+        icon: $q.icon.editor.align,
+        fixedLabel: true,
+        options: ['left', 'center', 'right', 'justify']
+      }
+    ],
+    ['undo', 'redo']
+  ]"
+  :fonts="{
+    arial: 'Arial',
+    arial_black: 'Arial Black',
+    comic_sans: 'Comic Sans MS',
+    courier_new: 'Courier New',
+    impact: 'Impact',
+    lucida_grande: 'Lucida Grande',
+    times_new_roman: 'Times New Roman',
+    verdana: 'Verdana'
+  }"
+></q-editor>
+
+<q-rating v-model="ratingModel" :max="5"></q-rating>
+
+<q-progress
+  :percentage="progressBuffer"
+  :buffer="buffer"
+  style="height: 4px"
+></q-progress>
+
+<transition
+  enter-active-class="animated bounceInLeft"
+  leave-active-class="animated bounceOutRight"
+  appear
+>
+  <q-alert
+    v-if="visible"
+    color="secondary"
+    icon="cloud"
+    appear
+    :actions="[{ label: 'Dismiss', handler: () => { visible = false } }]"
+    class="q-mb-sm"
+  >
+    Lorem ipsum dolor sit amet.
+  </q-alert>
+</transition>
+
+<q-list>
+  <q-collapsible group="somegroup" icon="explore" label="First">
+    <div>
+      Content
+    </div>
+  </q-collapsible>
+  <q-collapsible group="somegroup" icon="perm_identity" label="Second">
+    <div>
+      Content
+    </div>
+  </q-collapsible>
+  <q-collapsible group="somegroup" icon="shopping_cart" label="Third">
+    <div>
+      Content
+    </div>
+  </q-collapsible>
+</q-list>
+
+<template>
+  <q-tree
+    :nodes="simple"
+    node-key="label"
+  />
+</template>
+
+<q-card inline style="width: 500px">
+  <q-card-media>
+    <img src="https://toriavey.com/images/2011/06/Doughnuts.jpg">
+  </q-card-media>
+  <q-card-title>
+    Cafe Basilico
+    <q-rating slot="subtitle" v-model="stars" :max="5" />
+    <div slot="right" class="row items-center">
+      <q-icon name="place" /> 250 ft
+    </div>
+  </q-card-title>
+  <q-card-main>
+    <p>$・Italian, Cafe</p>
+    <p class="text-faded">Small plates, salads & sandwiches in an intimate setting.</p>
+  </q-card-main>
+  <q-card-separator></q-card-separator>
+  <q-card-actions>
+    <q-btn flat round dense icon="event" ></q-btn>
+    <q-btn flat label="5:30PM" ></q-btn>
+    <q-btn flat label="7:30PM" ></q-btn>
+    <q-btn flat label="9:00PM" ></q-btn>
+    <q-btn flat color="primary" label="Reserve" ></q-btn>
+  </q-card-actions>
+</q-card>
