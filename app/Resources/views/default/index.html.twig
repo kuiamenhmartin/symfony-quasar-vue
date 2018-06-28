@@ -9,10 +9,7 @@
           <q-toolbar>
             <q-btn flat round dense @click="drawerState = !drawerState" icon="menu"></q-btn>
 
-            <q-toolbar-title>
-              Vinty
-              <div slot="subtitle">Running on Quasar v {[{ version }]}</div>
-            </q-toolbar-title>
+            <toolbar-title></toolbar-title>
           </q-toolbar>
         </q-layout-header>
 
@@ -29,9 +26,7 @@
 
       </q-page-container>
     </q-layout>
-  </div> {# End of q-app #}
-
- 
+  </div> {# End of q-app #} 
 
 {% endblock %}
 

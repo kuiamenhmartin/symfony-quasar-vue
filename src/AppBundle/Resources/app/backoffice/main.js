@@ -12,6 +12,10 @@ Vue.component('my-page', {
   }
 })
 
+Vue.component('toolbar-title', {
+  template: '#toolbar-title'
+})
+
 new Vue({
   el: '#q-app',
   data: function () {

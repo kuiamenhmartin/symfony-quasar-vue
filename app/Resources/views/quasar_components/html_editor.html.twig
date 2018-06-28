@@ -1,3 +1,12 @@
+<template id="toolbar-title">
+	<q-toolbar-title>
+      Vinty
+      <div slot="subtitle">Running on Quasar v {[{ $q.version }]}</div>
+    </q-toolbar-title>
+</template>
+
+<template id="my-page">
+
 <q-editor
   v-model="model"
   :toolbar="[
@@ -132,3 +141,5 @@
     <q-btn flat color="primary" label="Reserve" ></q-btn>
   </q-card-actions>
 </q-card>
+
+</template>
