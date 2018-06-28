@@ -1,6 +1,6 @@
 'use strict'
 
-Vue.component('toolbar-title', {
+var myToolBar = Vue.component('toolbar-title', {
   template:`
     <q-toolbar-title>
       Vinty
@@ -8,7 +8,7 @@ Vue.component('toolbar-title', {
     </q-toolbar-title>`
 })
 
-Vue.component('my-page', {
+var myPage = Vue.component('my-page', {
   template: '#my-page',
   props: ['editorModel','ratingModel', 'progressBuffer', 'buffer', 'visible', 'simple', 'stars']
 })
