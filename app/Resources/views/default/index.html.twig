@@ -19,13 +19,21 @@
         </q-layout-drawer>
 
       <q-page-container>
-
-        <my-page></my-page>
-
-         {% include 'quasar_components/html_editor.html.twig' %}
+        <my-page 
+        :editorModel="editorModel" 
+        :ratingModel="ratingModel"
+        :progressBuffer="progressBuffer"
+        :buffer="buffer"
+        :visible="visible"
+        :simple="simple"
+        :stars="stars"></my-page>
+        {% include 'quasar_components/components.html.twig' %}
 
       </q-page-container>
     </q-layout>
+
+    
+
   </div> {# End of q-app #} 
 
 {% endblock %}

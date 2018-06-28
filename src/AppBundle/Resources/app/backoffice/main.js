@@ -1,29 +1,26 @@
 'use strict'
 
-Vue.component('my-page', {
-  template: '#my-page',
-  data : function(){
-    return {
-      model: "",
-      url: 'https://preprod.wylog.com',
-      opened: true,
-      search: ''
-    };
-  }
+Vue.component('toolbar-title', {
+  template:`
+    <q-toolbar-title>
+      Vinty
+      <div slot="subtitle">Running on Quasar v {[{ $q.version }]}</div>
+    </q-toolbar-title>`
 })
 
-Vue.component('toolbar-title', {
-  template: '#toolbar-title'
+Vue.component('my-page', {
+  template: '#my-page',
+  props: ['editorModel','ratingModel', 'progressBuffer', 'buffer', 'visible', 'simple', 'stars']
 })
+
 
 new Vue({
   el: '#q-app',
   data: function () {
     return {
-      version: Quasar.version,
       drawerState: false,
-      model : "",
-      ratingModel: 3,
+      editorModel: 'Hello',
+      ratingModel: 4,
       progressBuffer: 50,
       buffer: 60,
       visible: true,
@@ -66,6 +63,8 @@ new Vue({
     }
   }
 })
+
+
 
 
 console.log(Quasar);
